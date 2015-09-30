@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ShanghaiTower</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style"
+		content="black-translucent" />
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="stylesheet" href="../../base/jquery.mobile-1.4.2.css" />
+	<link rel="stylesheet" href="../../base/ui/jquery-ui-1.10.3.custom.css" />
+	<link rel="stylesheet" href="../../base/slides.css" />
+	<!-- link rel="stylesheet" href="../../css/640x854.css" />
+	<link rel="stylesheet" href="../../css/640x1010.css" />
+	<link rel="stylesheet" href="../../css/800x1138.css" />
+	<link rel="stylesheet" href="../../css/1080x1707.css" /-->
+	<link rel="stylesheet" href="../../css/mobile.css" />
+</head>
+<body onscroll="no" ontouchmove="event.preventDefault()" class="bodyClass">
+	<audio id="bgm" src="../../audio/bgm.mp3" loop="loop" oncanplay="this.play()">您的浏览器不支持 audio 标签。</audio>
+<div id="playcontrol" class="playcontrol" onclick="controlplaying();"></div>
+	<div data-role="page" id="WelcomePage" style="visibility: visible;">
+		<div data-role="main" class="ui-content">
+			<div id="status" style="margin-top:50%;margin-left:10%;width:80%;">
+				<span></span>
+			</div>
+			<div id="welcomeContent" style="display:none">
+				<!-- <img class="welcome" id="welcome"> -->
+				<canvas id="welcome" height="100%">your browser not support</canvas>
+				<div class="pointing" id="pointing" style="display:none"></div>
+				<img class="handL2R" id="handL2R" style="display:none"/>
+				<div class="tower_mask4" id="tower_mask4" style="display:none"><img class="handClick" src="../../images/gif-icons/01.gif"/></div>
+				<div class="tower_mask3" id="tower_mask3" style="display:none"></div>
+				<div class="tower_mask2" id="tower_mask2" style="display:none"></div>
+				<div class="tower_mask1" id="tower_mask1" style="display:none"></div>
+				<!-- <img id="tower" /> -->
+				<canvas id="tower" height="0px">your browser not support</canvas>
+			</div>
+		</div>
+	</div>
+	<div data-role="page" id="IndexPage" style="visibility: hidden;">
+		<div data-role="main" class="ui-content">
+			<div id="index" class="index">
+				<img id="circle1" class="circle circle1" src="../../images/gif-icons/04.gif">
+				<img id="circle3" class="circle circle3" src="../../images/gif-icons/04.gif">
+				<img id="circle4" class="circle circle4" src="../../images/gif-icons/04.gif">
+				<img id="circle5" class="circle circle5" src="../../images/gif-icons/04.gif">
+				<div id="view360" class="view360"></div>
+				<div id="phone" class="phone"></div>
+				
+				
+				<span id="tip" class="span">让我们了解它</span>
+				<div id="tower1" class="liner_r2l tower1"><span class="span1_font">观光厅</span><br><span class="span2_font">查看详情</span></div>
+				<div id="tower3" class="liner_r2l tower3"><span class="span1_font">办公楼<br>空中大堂</span><br><span class="span2_font">查看详情</span></div>
+				<div id="tower4" class="liner_r2l tower4"><span class="span1_font">商场</span><br><span class="span2_font">查看详情</span></div>
+				<div id="tower5" class="liner_l2r tower5"><span class="span1_font">会展中心</span><br><span class="span2_font">查看详情</span></div>
+			
+				<div id="shake" class="shake"></div>
+				<canvas id="indexCanvas">your browser not support</canvas>
+			</div>
+			<div id="contact" class="contact">
+				<!-- <img id="topback" class="topback" src="../../images/gif-icons/03.gif"> -->
+				<div id="topback" class="topback">返回</div>
+				<div id="viewmap" class="viewmap">查看周边地理</div>
+			</div>
+		</div>
+	</div>
+	<div data-role="page" id="SmallmapPage" style="visibility: hidden;">
+		<div data-role="main" class="ui-content">
+			<div class="smallmap">
+				<!-- <img id="mapTopback" class="topback" style="display: block;" src="../../images/gif-icons/03.gif"> -->
+				<div id="mapTopback" class="topback" style="display: block;">返回</div>
+				<a href="#bigmap" data-rel="popup" data-position-to="window" data-transition="fade"><img class="zoom" src="../../images/gif-icons/06.gif"></a>
+				<div data-role="popup" id="bigmap" data-overlay-theme="b" data-theme="b" data-corners="false">
+				    <a href="#" data-rel="back"><img class="ui-icon-closemap" src="../../images/gif-icons/05.gif"></a>
+				    <img src="../../images/1080x1707/21.jpg" style="width:100%;" class="popphoto" id="bigmapImg" >
+				</div>
+			</div>
+		</div>
+	</div>
+	<div data-role="page" id="Part1Page" style="visibility: hidden;">
+		<div data-role="main" class="ui-content">
+			<div id="part1" class="part1_1"></div>
+		</div>
+	</div>
+	<div data-role="page" id="Part2Page" data-theme="b">
+		<div data-role="main" class="ui-content">
+			<div id="part2"></div>
+			<div id="slideBox" class="slideBox"></div>
+		</div>
+	</div>
+	<div data-role="page" id="Part1_1Page" style="visibility: hidden;">
+	</div>
+	<div data-role="page" id="Part2_1Page" style="visibility: hidden;">
+	</div>
+	<div data-role="page" id="Part3_1Page" style="visibility: hidden;">
+	</div>
+	<div data-role="page" id="Part4_1Page" style="visibility: hidden;">
+	</div>
+	<div data-role="page" id="Part5_1Page" style="visibility: hidden;">
+	</div>
+		
+	<script type="text/javascript" charset="UTF-8" src="../../base/jquery.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="../../base/jquery.mobile-1.4.2.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="../../base/jquery.slides.js"></script>
+     <script type="text/javascript" charset="UTF-8" src="../../base/ui/jquery-ui-1.10.3.custom.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="../../base/pageInit.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="../../base/DataCenter.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="../../base/Util.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="../../base/Constant.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="../../base/plugins/imgpreload/jquery.imgpreload.min.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="welcome.js"></script>
+<!--     <script type="text/javascript" charset="UTF-8" src="index.js"></script> -->
+<!--     <script type="text/javascript" charset="UTF-8" src="contact.js"></script> -->
+<!--     <script type="text/javascript" charset="UTF-8" src="smallmap.js"></script> -->
+<!--     <script type="text/javascript" charset="UTF-8" src="part1.js"></script> -->
+<!--     <script type="text/javascript" charset="UTF-8" src="part2.js"></script> -->
+<!--     <script type="text/javascript" charset="UTF-8" src="part1_1.js"></script> -->
+<!--     <script type="text/javascript" charset="UTF-8" src="part2_1.js"></script> -->
+<!--     <script type="text/javascript" charset="UTF-8" src="part3_1.js"></script> -->
+<!--     <script type="text/javascript" charset="UTF-8" src="part4_1.js"></script> -->
+<!--     <script type="text/javascript" charset="UTF-8" src="part5_1.js"></script> -->
+    <script type="text/javascript">
+    	$.mobile.loadPage();
+    </script>
+</body>
+</html>
